@@ -1,0 +1,44 @@
+import random
+import string
+
+while True:
+    try:
+        l = int(input("write the length of password: "))
+        if l < 4:
+            print("password is too small")
+        else:
+            break
+    except ValueError:
+        print("enter valid number")
+
+
+letters = input("Do you want to use letters in your password: ").lower()
+no = input("Do you want to use numbers in your password: ").lower()
+sym = input("Do you want to ues symbols in your password: ").lower()
+
+while letters != 'y' and no != 'y' and sym!='y':
+    print("Please enter atleast one category")
+    letters = input("Do you want to use letters in your password: ").lower()
+    no = input("Do you want to use numbers in your password: ").lower()
+    sym = input("Do you want to ues symbols in your password: ").lower()
+
+lis= list(string.ascii_letters)
+n = list(string.digits)
+s= list('!@#$%^&*/')
+
+
+new_list= []
+
+if letters == 'y':
+    new_list = new_list + lis
+if no == 'y':
+    new_list = new_list + n
+if sym == 'y':
+    new_list = new_list+ s
+
+password= []
+for i in range(l):
+    a =random.choice(new_list)
+    password.append(a)
+p= "".join(password)
+print("The generated password is ",p)
